@@ -24,6 +24,7 @@ class BooksActivity : AppCompatActivity() {
             it?.let {books ->
                 with(recycler_books){
                     layoutManager = LinearLayoutManager(this@BooksActivity,RecyclerView.VERTICAL, false)
+                    setHasFixedSize(true)
                     adapter = BooksRecyclerViewAdapter(books)
                 }
             }
