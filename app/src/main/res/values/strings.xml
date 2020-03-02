@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">NyBooks</string>
     <string name="books_toolbar_title">Books</string>
+    <string name="books_details_title">Title</string>
+    <string name="books_details_description">Description</string>
     <!-- Books>-->
 </resources>

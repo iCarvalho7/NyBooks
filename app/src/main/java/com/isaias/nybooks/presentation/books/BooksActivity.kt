@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.isaias.nybooks.data.model.Book
+import com.isaias.nybooks.presentation.details.BookDetailsActivity
 import com.isaias.nybooks.ui.activity.R
 import kotlinx.android.synthetic.main.activity_books.*
 
@@ -25,7 +26,14 @@ class BooksActivity : AppCompatActivity() {
                 with(recycler_books){
                     layoutManager = LinearLayoutManager(this@BooksActivity,RecyclerView.VERTICAL, false)
                     setHasFixedSize(true)
-                    adapter = BooksRecyclerViewAdapter(books)
+                    adapter = BooksRecyclerViewAdapter(books){ book ->
+                        val sartIntent = BookDetailsActivity.getSartIntent(
+                            applicationContext,
+                            book.title,
+                            book.description
+                        )
+                        startActivity(sartIntent)
+                    }
                 }
             }
         })
